@@ -1,5 +1,5 @@
 
-I
-java:S11253"'Remove the unnecessary boolean literal.(ĞÏŸşÿÿÿÿ8ÕŸâÅú/
-
-java:S14884"_Immediately return this expression instead of assigning it to the temporary variable "product".(¨şÛ¿ùÿÿÿÿ8åŸâÅú/
+B
+java:S11253"'Remove the unnecessary boolean literal.(ĞÏŸşÿÿÿÿ
+z
+java:S14884"_Immediately return this expression instead of assigning it to the temporary variable "product".(¨şÛ¿ùÿÿÿÿ

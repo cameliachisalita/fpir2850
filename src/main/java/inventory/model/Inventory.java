@@ -99,7 +99,9 @@ public class Inventory {
      */
     public Part lookupPart(String searchItem) {
         for(Part p:allParts) {
-            if(p.getName().contains(searchItem) || (p.getPartId()+"").equals(searchItem)) return p;
+            if(searchItem.equals("")) return null;
+            if(p.getName().contains(searchItem)) return p;
+            if((p.getPartId()+"").equals(searchItem)) return p;
         }
         return null;
     }
