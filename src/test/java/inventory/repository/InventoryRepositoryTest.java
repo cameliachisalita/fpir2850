@@ -61,6 +61,23 @@ class InventoryRepositoryTest {
 
     @Test
     @Order(3)
+    void addIncorrectPartsInRepoECP2() {
+        InventoryRepository inventoryRepository = new InventoryRepository();
+
+        inventoryRepository.addPart(new Part(0, "working_part", 1.00, 50, 5, 100));
+        if (Objects.equals(Part.isValidPart("", 1.00, 10, 5, 100, ""), "")) {
+            inventoryRepository.addPart(new Part(2, "", 1.00, 10, 5, 100));
+        }
+        inventoryRepository.addPart(new Part(1, "working_part2", 1.00, 40, 5, 100));
+        if (Objects.equals(Part.isValidPart("Compresor", 1.00, 101, 5, 100, ""), "")) {
+            inventoryRepository.addPart(new Part(3, "Compresor", 1.00, 101, 5, 100));
+        }
+
+        assertEquals(2, inventoryRepository.getAllParts().size(), "The invalid part objects have been incorrectly added.");
+    }
+
+    @Test
+    @Order(4)
     void addCorrectPartsInRepoECP() {
         InventoryRepository inventoryRepository = new InventoryRepository();
 
@@ -73,7 +90,20 @@ class InventoryRepositoryTest {
     }
 
     @Test
-    @Order(4)
+    @Order(5)
+    void addCorrectPartsInRepoECP2() {
+        InventoryRepository inventoryRepository = new InventoryRepository();
+
+        inventoryRepository.addPart(new Part(0, "working_part", 1.00, 50, 5, 100));
+        inventoryRepository.addPart(new Part(2, "Some_other_working_part", 1.00, 10, 5, 100));
+        inventoryRepository.addPart(new Part(1, "working_part2", 1.00, 40, 5, 100));
+        inventoryRepository.addPart(new Part(3, "Some_other_working_part", 1.00, 20, 5, 100));
+
+        assertEquals(4, inventoryRepository.getAllParts().size(), "The invalid part objects have been incorrectly added.");
+    }
+
+    @Test
+    @Order(6)
     //@Disabled("These tests have flaws")
     void addIncorrectPartsInRepoBVA() {
         InventoryRepository inventoryRepository = new InventoryRepository();
@@ -91,8 +121,39 @@ class InventoryRepositoryTest {
     }
 
     @Test
-    @Order(5)
+    @Order(7)
+        //@Disabled("These tests have flaws")
+    void addIncorrectPartsInRepoBVA2() {
+        InventoryRepository inventoryRepository = new InventoryRepository();
+
+        inventoryRepository.addPart(new Part(0, "Compresor", 3000.00, 50, 5, 100));
+        if (Objects.equals(Part.isValidPart("", 3000.00, 10, 5, 100, ""), "")) {
+            inventoryRepository.addPart(new Part(1, "", 3000.00, 10, 5, 100));
+        }
+        inventoryRepository.addPart(new Part(2, "Compresor", 3000.00, 40, 5, 100));
+        if (Objects.equals(Part.isValidPart("Compresor", 1.00, 101, 5, 100, ""), "")) {
+            inventoryRepository.addPart(new Part(3, "Compresor", 3000.00, 101, 5, 100));
+        }
+
+        assertEquals(2, inventoryRepository.getAllParts().size(), "The invalid part objects have been incorrectly added.");
+    }
+
+    @Test
+    @Order(8)
     void addCorrectPartsInRepoBVA() {
+        InventoryRepository inventoryRepository = new InventoryRepository();
+
+        inventoryRepository.addPart(new Part(0, "Compresor", 3000.00, 50, 5, 100));
+        inventoryRepository.addPart(new Part(2, "Compresor", 3000.00, 10, 5, 100));
+        inventoryRepository.addPart(new Part(1, "Compresor", 3000.00, 40, 5, 100));
+        inventoryRepository.addPart(new Part(3, "Compresor", 3000.00, 20, 5, 100));
+
+        assertEquals(4, inventoryRepository.getAllParts().size(), "The invalid part objects have been incorrectly added.");
+    }
+
+    @Test
+    @Order(9)
+    void addCorrectPartsInRepoBVA2() {
         InventoryRepository inventoryRepository = new InventoryRepository();
 
         inventoryRepository.addPart(new Part(0, "Compresor", 3000.00, 50, 5, 100));
