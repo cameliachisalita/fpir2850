@@ -6,11 +6,13 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.StringTokenizer;
 
 public class InventoryRepository {
 
-	private static String filename = "./data/items.txt";
+	private static final String filename = "testItems.txt"; // OR USE "items.txt"
 	private Inventory inventory;
 
 	public InventoryRepository(){
@@ -20,12 +22,11 @@ public class InventoryRepository {
 	}
 
 	public void readParts(){
-		ClassLoader classLoader = InventoryRepository.class.getClassLoader();
-		File file = new File(classLoader.getResource(filename).getFile());
 		ObservableList<Part> listP = FXCollections.observableArrayList();
 		BufferedReader br = null;
 		try {
-			br = new BufferedReader(new FileReader(file));
+			br = Files.newBufferedReader(Paths.get("src/main/resources/data/" + filename));
+
 			String line = null;
 			while((line=br.readLine())!=null){
 				Part part=getPartFromString(line);
@@ -72,13 +73,10 @@ public class InventoryRepository {
 	}
 
 	public void readProducts(){
-		ClassLoader classLoader = InventoryRepository.class.getClassLoader();
-		File file = new File(classLoader.getResource(filename).getFile());
-
 		ObservableList<Product> listP = FXCollections.observableArrayList();
 		BufferedReader br = null;
 		try {
-			br = new BufferedReader(new FileReader(file));
+			br = Files.newBufferedReader(Paths.get("src/main/resources/data/" + filename));
 			String line = null;
 			while((line=br.readLine())!=null){
 				Product product=getProductFromString(line);
@@ -124,16 +122,12 @@ public class InventoryRepository {
 	}
 
 	public void writeAll() {
-
-		ClassLoader classLoader = InventoryRepository.class.getClassLoader();
-		File file = new File(classLoader.getResource(filename).getFile());
-
 		BufferedWriter bw = null;
 		ObservableList<Part> parts=inventory.getAllParts();
 		ObservableList<Product> products=inventory.getProducts();
 
 		try {
-			bw = new BufferedWriter(new FileWriter(file));
+			bw = Files.newBufferedWriter(Paths.get("src/main/resources/data/" + filename));
 			for (Part p:parts) {
 				System.out.println(p.toString());
 				bw.write(p.toString());
