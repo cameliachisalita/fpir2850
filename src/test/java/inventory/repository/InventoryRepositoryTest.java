@@ -74,14 +74,18 @@ class InventoryRepositoryTest {
 
     @Test
     @Order(4)
-    @Disabled("These tests have flaws")
+    //@Disabled("These tests have flaws")
     void addIncorrectPartsInRepoBVA() {
         InventoryRepository inventoryRepository = new InventoryRepository();
 
         inventoryRepository.addPart(new Part(0, "Compresor", 3000.00, 50, 5, 100));
-        inventoryRepository.addPart(new Part(2, "", 3000.00, 10, 5, 100));
-        inventoryRepository.addPart(new Part(1, "Compresor", 3000.00, 40, 5, 100));
-        inventoryRepository.addPart(new Part(3, "Compresor", 3000.00, 2, 5, 100));
+        if (Objects.equals(Part.isValidPart("", 3000.00, 10, 5, 100, ""), "")) {
+            inventoryRepository.addPart(new Part(1, "", 3000.00, 10, 5, 100));
+        }
+        inventoryRepository.addPart(new Part(2, "Compresor", 3000.00, 40, 5, 100));
+        if (Objects.equals(Part.isValidPart("Compresor", 1.00, 101, 5, 100, ""), "")) {
+            inventoryRepository.addPart(new Part(3, "Compresor", 3000.00, 101, 5, 100));
+        }
 
         assertEquals(2, inventoryRepository.getAllParts().size(), "The invalid part objects have been incorrectly added.");
     }
