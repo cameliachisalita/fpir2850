@@ -30,7 +30,7 @@ class InventoryRepositoryTest {
     }
 
     @Test
-    @Order(1)
+    //@Order(1)
     void createList() {
         list_parts = new ArrayList<Part>();
 
@@ -43,7 +43,7 @@ class InventoryRepositoryTest {
     }
 
     @Test
-    @Order(2)
+    //@Order(2)
     void addIncorrectPartsInRepoECP() {
         InventoryRepository inventoryRepository = new InventoryRepository();
 
@@ -60,7 +60,7 @@ class InventoryRepositoryTest {
     }
 
     @Test
-    @Order(3)
+    //@Order(3)
     void addIncorrectPartsInRepoECP2() {
         InventoryRepository inventoryRepository = new InventoryRepository();
 
@@ -77,7 +77,7 @@ class InventoryRepositoryTest {
     }
 
     @Test
-    @Order(4)
+    //@Order(4)
     void addCorrectPartsInRepoECP() {
         InventoryRepository inventoryRepository = new InventoryRepository();
 
@@ -90,7 +90,7 @@ class InventoryRepositoryTest {
     }
 
     @Test
-    @Order(5)
+    //@Order(5)
     void addCorrectPartsInRepoECP2() {
         InventoryRepository inventoryRepository = new InventoryRepository();
 
@@ -103,7 +103,7 @@ class InventoryRepositoryTest {
     }
 
     @Test
-    @Order(6)
+    //@Order(6)
     //@Disabled("These tests have flaws")
     void addIncorrectPartsInRepoBVA() {
         InventoryRepository inventoryRepository = new InventoryRepository();
@@ -121,8 +121,8 @@ class InventoryRepositoryTest {
     }
 
     @Test
-    @Order(7)
-        //@Disabled("These tests have flaws")
+    //@Order(7)
+    //@Disabled("These tests have flaws")
     void addIncorrectPartsInRepoBVA2() {
         InventoryRepository inventoryRepository = new InventoryRepository();
 
@@ -139,7 +139,7 @@ class InventoryRepositoryTest {
     }
 
     @Test
-    @Order(8)
+    //@Order(8)
     void addCorrectPartsInRepoBVA() {
         InventoryRepository inventoryRepository = new InventoryRepository();
 
@@ -152,7 +152,7 @@ class InventoryRepositoryTest {
     }
 
     @Test
-    @Order(9)
+    //@Order(9)
     void addCorrectPartsInRepoBVA2() {
         InventoryRepository inventoryRepository = new InventoryRepository();
 

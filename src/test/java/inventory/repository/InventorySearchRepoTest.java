@@ -34,7 +34,7 @@ class InventorySearchRepoTest {
     }
 
     @Test
-    @Order(1)
+    //@Order(1)
     void searchItemsInEmptyRepo() {
         InventoryRepository emptyRepo = new InventoryRepository();
 
@@ -44,7 +44,7 @@ class InventorySearchRepoTest {
     }
 
     @Test
-    @Order(2)
+    //@Order(2)
     @Disabled("Equals is not overridden") // it's wrong only when the method "equals" is not overridden in the Part class
     void searchExistingItemsInRepoByNameWrong() {
         String title = "Compressor";
@@ -56,7 +56,7 @@ class InventorySearchRepoTest {
     }
 
     @Test
-    @Order(3)
+    //@Order(3)
     void searchExistingItemsInRepoByName() {
         String title = "Compressor";
         Part part = new Part(0, "Compressor", 5000.00, 75, 5, 100);
@@ -72,7 +72,7 @@ class InventorySearchRepoTest {
     }
 
     @Test
-    @Order(4)
+    //@Order(4)
     void searchExistingItemsInRepoById() {
         String id = "1";
         Part part = new Part(1, "Compressor2", 3000.00, 50, 5, 100);
@@ -88,7 +88,7 @@ class InventorySearchRepoTest {
     }
 
     @Test
-    @Order(5)
+    //@Order(5)
     void searchNonExistingItemsInRepo() {
         String title = "Alibaba";
 
