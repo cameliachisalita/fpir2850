@@ -1,4 +1,0 @@
-0,working_part,1.0,50,5,100
-2,Some_other_working_part,1.0,10,5,100
-1,working_part2,1.0,40,5,100
-3,Some_other_working_part,1.0,20,5,100
