@@ -79,6 +79,9 @@ public class Step1 {
     @Test
     @Order(4)
     public void verifyRepo2(){
+        inventoryrepository.deletePart(thePart);
+        inventoryrepository.deletePart(thePart);
+
         assertEquals(0,inventoryrepository.getAllParts().size());
     }
 
@@ -100,7 +103,17 @@ public class Step1 {
 
     @Test
     @Order(6)
-    public void verifyService1(){
+    public void verifyService2(){
         assertEquals(0, inventoryservice.getAllParts().size());
+    }
+
+    @Test
+    public void testAll() {
+        verifyPart();
+        verifyPart2();
+        verifyRepo();
+        verifyRepo2();
+        verifyService();
+        verifyService2();
     }
 }

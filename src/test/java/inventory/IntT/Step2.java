@@ -51,4 +51,9 @@ public class Step2 {
         assertEquals(0,inventoryService.getAllParts().size());
     }
 
+    @Test
+    public void testAll() {
+        TestAdd();
+        TestDelete();
+    }
 }

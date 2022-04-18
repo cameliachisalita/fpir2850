@@ -43,4 +43,9 @@ public class Step3 {
         assertEquals(0,inventoryService.getAllParts().size());
     }
 
+    @Test
+    public void testAll() {
+        TestAdd();
+        TestDelete();
+    }
 }
