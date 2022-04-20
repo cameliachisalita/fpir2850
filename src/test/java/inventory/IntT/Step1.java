@@ -35,7 +35,7 @@ public class Step1 {
     private InventoryService inventoryservice = new InventoryService(inventoryrepository);
 
     @Test
-    @Order(1)
+    //@Order(1)
     public void verifyPart(){
         Mockito.when(thePart.getName()).thenReturn("working_part");
         Mockito.when(thePart.getPrice()).thenReturn(1.00);
